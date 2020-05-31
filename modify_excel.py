@@ -31,5 +31,16 @@ class Write_excel(object):
     chart.set_categories(cat)
     self.ws.add_chart(chart, pos)
     self.wb.save(self.filename)
+wb=Workbook()
+ws=wb.active
 wr = Write_excel('123.xlsx') 
-wr.write('A2','hello')
+# wr.write('A2','hello')
+rows = [
+    (None, 2013, 2014),
+    ("Apples",5,4),
+    ("oranges",6,2),
+    ('Pears',8,3)
+    ]
+for row in rows:
+    ws.append(row)
+wr.makechart(r"3D Bar", 'E5', 12.5, 7, 2, 1, 3, 4, 1, 2, 4)
